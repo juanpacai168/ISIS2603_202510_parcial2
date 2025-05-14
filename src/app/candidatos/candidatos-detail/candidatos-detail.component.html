@@ -1,14 +1,18 @@
-<div>
-    <h3>{{candidato.nombre}}</h3>
-    <div>
-        <div style="width: 50%; display: inline-block;">
-            <img [src]="candidato.foto" alt="{{ candidato.nombre }}" style="width: 80%; ">
+
+        <div style="display: flex; flex-direction: column; align-items: center;">
+            <div style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #f0f0f0; margin-bottom: 16px;">
+                <img [src]="candidato.foto" alt="{{ candidato.nombre }}" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+        <div style="text-align: center;"></div>
+        <h3>{{candidato.nombre}}</h3>
+        <div>
+
+            <div style="display: flex; flex-direction: row; gap: 32px;">
+                <p><strong>Pais de Origen: </strong> {{candidato.pais_origen}} </p>
+                <p><strong>Vertiente Religiosa: </strong> {{candidato.vertiente_religiosa}} </p>
+                <p><strong>Edad: </strong> {{candidato.edad}} </p>
+            </div>
         </div>
-        
-        <div style="width: 50%; display: inline-block;">
-            <p><strong>Pais de Origen: </strong> {{candidato.pais_origen}} </p>
-            <p><strong>Vertiente Religiosa: </strong> {{candidato.vertiente_religiosa}} </p>
-            <p><strong>Edad: </strong> {{candidato.edad}} </p>
-        </div>
-    </div>
+
+    <button (click)="volver()">Volver </button>
 </div>

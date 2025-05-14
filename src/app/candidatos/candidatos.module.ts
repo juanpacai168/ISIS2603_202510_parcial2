@@ -6,15 +6,12 @@ import { CandidatosDetailComponent } from './candidatos-detail/candidatos-detail
 
 
 @NgModule({
-  declarations: [
-    CandidatosListComponent,
-    CandidatosDetailComponent
-  ],
+
   imports: [
-    CommonModule
+    CommonModule, CandidatosDetailComponent, CandidatosListComponent
   ],
   exports: [
-    CandidatosListComponent
+    CandidatosListComponent, CandidatosDetailComponent
   ]
 
 })

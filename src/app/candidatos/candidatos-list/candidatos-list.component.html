@@ -1,26 +1,45 @@
-<div class="container">
-    <h1 class="mt-4">Candidatos a Papa - 2025</h1>
+<header class="banner mb-4">
+    <div class="container d-flex justify-content-center align-items-c" style="background-color: #C41E3A; color: white; height: 60px; font-size: 2rem; border-radius: 8px;">
+        candidatos a papa 2025
+    </div>
 
-    <table class="table table-bordered mt-4">
-        <thead>
-            <tr style="--bs-table-bg: #C41E3A; --bs-table-color: white;">
-                <th scope="col">Nombre</th>
-                <th scope="col">Foto</th>
-                <th scope="col">Pais Origen</th>
-                <th scope="col">Edad</th>
-                <th scope="col">Vertiente Religiosa</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let candidato of candidatos" (click)="seleccionarCandidato(candidato)">
-                <td>{{ candidato.nombre }}</td>
-                <td><img [src]="candidato.foto" alt="{{ candidato.nombre }}" style="width: 50px; height: auto;"></td>
-                <td>{{ candidato.pais_origen }}</td>
-                <td>{{ candidato.edad }} años</td>
-                <td>{{ candidato.vertiente_religiosa }}</td>
-            </tr>
-        </tbody>
-    </table>
+<main class="container my-4">
+  <div class="row g-4 justify-content-center">
+    <div class="col-12 col-sm-6 col-md-4" *ngFor="let r of candidatos">
+      <div class="card recipe-card h-100 d-flex flex-column" role="button">
+        <div class="position-relative">
+          <img
+        [src]="r.foto"
+        class="card-img-top"
+        [alt]="r.nombre"
+          >
+          <div
+        class="favorite-icon position-absolute top-0 end-0 m-2"
+        (click)="$event.stopPropagation()"
+          >
+          </div>
+        </div>
 
-    <app-candidatos-detail *ngIf="candidatoSeleccionado" [candidato]="candidatoSeleccionado"></app-candidatos-detail>
-</div>
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{ r.nombre }}</h5>
+          <p class="card-text mb-1">
+        Pais Origne: {{ r.pais_origen }} 
+          </p>
+          <p class="card-text mb-1">
+        Edad: {{ r.edad }}
+          </p>
+          <p class="card-text mb-3">
+        Vertiente Religiosa: {{ r.vertiente_religiosa }}
+          </p>
+        <button
+            class="btn btn-primary mt-auto"
+            (click)="goToDetail(r)"
+        >
+
+        </button>
+        </div>
+    </div>
+  </div>
+  <div class="mt-4 text-center">
+    El próximo papa será: {{ (papaaleatorio) }}
+  </div>
